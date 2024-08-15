@@ -9,7 +9,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 )
-
+// this is a code
 type serverConfig struct {
 	Messengers   []string   `json:"messengers"`
 	Langs        []i18nLang `json:"langs"`
