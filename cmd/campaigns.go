@@ -613,7 +613,7 @@ func makeOptinCampaignMessage(o campaignReq, app *App) (campaignReq, error) {
 	if len(o.ListIDs) == 0 {
 		return o, echo.NewHTTPError(http.StatusBadRequest, app.i18n.T("campaigns.fieldInvalidListIDs"))
 	}
-
+// this is my  new code
 	// Fetch double opt-in lists from the given list IDs.
 	lists, err := app.core.GetListsByOptin(o.ListIDs, models.ListOptinDouble)
 	if err != nil {
