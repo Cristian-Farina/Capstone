@@ -5,7 +5,7 @@
 
     <b-menu-item :expanded="activeGroup.lists" :active="activeGroup.lists" data-cy="lists"
       @update:active="(state) => toggleGroup('lists', state)" icon="format-list-bulleted-square"
-      :label="$t('globals.terms.lists')">
+      :label="$t('User Category')">
       <b-menu-item :to="{ name: 'lists' }" tag="router-link" :active="activeItem.lists" data-cy="all-lists"
         icon="format-list-bulleted-square" :label="$t('menu.allLists')" />
       <b-menu-item :to="{ name: 'forms' }" tag="router-link" :active="activeItem.forms" class="forms"
@@ -14,7 +14,7 @@
 
     <b-menu-item :expanded="activeGroup.subscribers" :active="activeGroup.subscribers" data-cy="subscribers"
       @update:active="(state) => toggleGroup('subscribers', state)" icon="account-multiple"
-      :label="$t('globals.terms.subscribers')">
+      :label="$t('Users')">
       <b-menu-item :to="{ name: 'subscribers' }" tag="router-link" :active="activeItem.subscribers"
         data-cy="all-subscribers" icon="account-multiple" :label="$t('menu.allSubscribers')" />
       <b-menu-item :to="{ name: 'import' }" tag="router-link" :active="activeItem.import" data-cy="import"
@@ -25,7 +25,7 @@
 
     <b-menu-item :expanded="activeGroup.campaigns" :active="activeGroup.campaigns" data-cy="campaigns"
       @update:active="(state) => toggleGroup('campaigns', state)" icon="rocket-launch-outline"
-      :label="$t('globals.terms.campaigns')">
+      :label="$t('Newsletter')">
       <b-menu-item :to="{ name: 'campaigns' }" tag="router-link" :active="activeItem.campaigns" data-cy="all-campaigns"
         icon="rocket-launch-outline" :label="$t('menu.allCampaigns')" />
       <b-menu-item :to="{ name: 'campaign', params: { id: 'new' } }" tag="router-link" :active="activeItem.campaign"
