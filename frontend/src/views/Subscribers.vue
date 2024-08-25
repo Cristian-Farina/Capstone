@@ -3,7 +3,7 @@
     <header class="columns page-header">
       <div class="column is-10">
         <h1 class="title is-4">
-          {{ $t('globals.terms.subscribers') }}
+          {{ $t('Users') }}
           <span v-if="!isNaN(subscribers.total)">
             (<span data-cy="count">{{ subscribers.total }}</span>)
           </span>
@@ -58,12 +58,6 @@
               </div><!-- advanced query -->
             </div>
           </form>
-          <div v-if="!isSearchAdvanced" class="toggle-advanced">
-            <a href="#" @click.prevent="toggleAdvancedSearch" data-cy="btn-advanced-search">
-              <b-icon icon="cog-outline" size="is-small" />
-              {{ $t('subscribers.advancedQuery') }}
-            </a>
-          </div>
         </div><!-- search -->
       </div>
     </section><!-- control -->
@@ -128,7 +122,7 @@
           </template>
         </b-taglist>
       </b-table-column>
-
+    
       <b-table-column v-slot="props" field="name" :label="$t('globals.fields.name')" header-class="cy-name" sortable>
         <a :href="`/subscribers/${props.row.id}`" @click.prevent="showEditForm(props.row)">
           {{ props.row.name }}

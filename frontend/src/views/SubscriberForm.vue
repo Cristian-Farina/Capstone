@@ -9,7 +9,7 @@
           {{ data.name }}
         </h4>
         <h4 v-else>
-          {{ $t('subscribers.newSubscriber') }}
+          {{ $t('New Users') }}
         </h4>
 
         <p v-if="isEditing" class="has-text-grey is-size-7">
@@ -25,35 +25,33 @@
         </b-field>
 
         <div class="columns">
-          <div class="column is-8">
-            <b-field :label="$t('globals.fields.name')" label-position="on-border">
-              <b-input :maxlength="200" v-model="form.name" name="name" :placeholder="$t('globals.fields.name')" />
+          <div class="column is-4">
+            <b-field :label="$t('First Name')" label-position="on-border">
+              <b-input :maxlength="200" v-model="form.name" name="name" :placeholder="$t('Type in first Name')" />
+            </b-field>
+            <b-field :label="$t('Last Name')" label-position="on-border">
+              <b-input :maxlength="200" v-model="form.name" name="name" :placeholder="$t('Type in last Name')" />
             </b-field>
           </div>
           <div class="column is-4">
             <b-field :label="$t('globals.fields.status')" label-position="on-border"
-              :message="$t('subscribers.blocklistedHelp')">
+              :message="$t('')">
               <b-select v-model="form.status" name="status" :placeholder="$t('globals.fields.status')" required expanded>
-                <option value="enabled">
-                  {{ $t('subscribers.status.enabled') }}
+                <option value="Subscribed">
+                  {{ $t('Subscribed') }}
                 </option>
-                <option value="blocklisted">
-                  {{ $t('subscribers.status.blocklisted') }}
+                <option value="Unsubscribed">
+                  {{ $t('Unsubscribed') }}
                 </option>
               </b-select>
             </b-field>
           </div>
         </div>
 
-        <list-selector :label="$t('subscribers.lists')" :placeholder="$t('subscribers.listsPlaceholder')"
+        <list-selector :label="$t('User Category')" :placeholder="$t('User Category')"
           :message="$t('subscribers.listsHelp')" v-model="form.lists" :selected="form.lists" :all="lists.results" />
         <div class="columns mb-5">
           <div class="column is-7">
-            <b-field :message="$t('subscribers.preconfirmHelp')">
-              <b-checkbox v-model="form.preconfirm" :native-value="true" :disabled="!hasOptinList">
-                {{ $t('subscribers.preconfirm') }}
-              </b-checkbox>
-            </b-field>
           </div>
           <div class="column is-5 has-text-right" v-if="isEditing">
             <a href="#" @click.prevent="sendOptinConfirmation" :class="{ 'is-disabled': !hasOptinList }">
@@ -61,16 +59,6 @@
               {{ $t('subscribers.sendOptinConfirm') }}</a>
           </div>
         </div>
-
-        <b-field :message="$t('subscribers.attribsHelp') + ' ' + egAttribs" class="mb-5">
-          <div>
-            <h5>{{ $t('subscribers.attribs') }}</h5>
-            <b-input v-model="form.strAttribs" name="attribs" type="textarea" />
-            <a href="https://listmonk.app/docs/concepts" target="_blank" rel="noopener noreferrer" class="is-size-7">
-              {{ $t('globals.buttons.learnMore') }} <b-icon icon="link-variant" size="is-small" />
-            </a>
-          </div>
-        </b-field>
 
         <div class="mb-5 mt-6" v-if="data.lists">
           <h5>{{ $tc('globals.terms.subscriptions', 2) }} ({{ data.lists.length }})</h5>
@@ -94,19 +82,21 @@
               <b-tag :class="`status-${props.row.subscriptionStatus}`">
                 {{ $t(`subscribers.status.${props.row.subscriptionStatus}`) }}
               </b-tag>
+
               <template v-if="props.row.optin === 'double' && props.row.subscriptionMeta.optinIp">
                 <br /><span class="is-size-7">{{ props.row.subscriptionMeta.optinIp }}</span>
               </template>
-            </b-table-column>
+            </b-table-column> <!-- 关闭标签 -->
 
             <b-table-column v-slot="props" field="createdAt" :label="$t('globals.fields.createdAt')">
               {{ $utils.niceDate(props.row.subscriptionCreatedAt, true) }}
-            </b-table-column>
+            </b-table-column> <!-- 关闭标签 -->
 
             <b-table-column v-slot="props" field="updatedAt" :label="$t('globals.fields.updatedAt')">
               {{ $utils.niceDate(props.row.subscriptionCreatedAt, true) }}
-            </b-table-column>
-          </b-table>
+            </b-table-column> <!-- 关闭标签 -->
+            
+          </b-table> <!-- 关闭表格标签 -->
         </div>
 
         <div class="bounces" v-show="bounces.length > 0">
@@ -302,7 +292,6 @@ export default Vue.extend({
         this.$utils.toast(
           `${this.$t('subscribers.invalidJSON')}: ${e.toString()}`,
           'is-danger',
-
           3000,
         );
         return null;

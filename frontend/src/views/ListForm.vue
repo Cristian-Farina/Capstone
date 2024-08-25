@@ -13,35 +13,13 @@
           {{ data.name }}
         </h4>
         <h4 v-else>
-          {{ $t('lists.newList') }}
+          {{ $t('User Categoty') }}
         </h4>
       </header>
       <section expanded class="modal-card-body">
-        <b-field :label="$t('globals.fields.name')" label-position="on-border">
+        <b-field :label="$t('Name')" label-position="on-border">
           <b-input :maxlength="200" :ref="'focus'" v-model="form.name" name="name"
-            :placeholder="$t('globals.fields.name')" required />
-        </b-field>
-
-        <b-field :label="$t('lists.type')" label-position="on-border" :message="$t('lists.typeHelp')">
-          <b-select v-model="form.type" name="type" :placeholder="$t('lists.typeHelp')" required>
-            <option value="private">
-              {{ $t('lists.types.private') }}
-            </option>
-            <option value="public">
-              {{ $t('lists.types.public') }}
-            </option>
-          </b-select>
-        </b-field>
-
-        <b-field :label="$t('lists.optin')" label-position="on-border" :message="$t('lists.optinHelp')">
-          <b-select v-model="form.optin" name="optin" placeholder="Opt-in type" required>
-            <option value="single">
-              {{ $t('lists.optins.single') }}
-            </option>
-            <option value="double">
-              {{ $t('lists.optins.double') }}
-            </option>
-          </b-select>
+            :placeholder="$t('')" required />
         </b-field>
 
         <b-field :label="$t('globals.terms.tags')" label-position="on-border">
