@@ -3,7 +3,7 @@
     <header class="columns page-header">
       <div class="column is-10">
         <h1 class="title is-4">
-          {{ $t('globals.terms.campaigns') }}
+          {{ $t('Newsletters') }} <!-- before was globals.terms.campaigns -->
           <span v-if="!isNaN(campaigns.total)">({{ campaigns.total }})</span>
         </h1>
       </div>
