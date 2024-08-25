@@ -3,25 +3,15 @@
     <b-menu-item :to="{ name: 'dashboard' }" tag="router-link" :active="activeItem.dashboard"
       icon="view-dashboard-variant-outline" :label="$t('menu.dashboard')" /><!-- dashboard -->
 
-    <b-menu-item :expanded="activeGroup.lists" :active="activeGroup.lists" data-cy="lists"
-      @update:active="(state) => toggleGroup('lists', state)" icon="format-list-bulleted-square"
-      :label="$t('globals.terms.lists')">
-      <b-menu-item :to="{ name: 'lists' }" tag="router-link" :active="activeItem.lists" data-cy="all-lists"
-        icon="format-list-bulleted-square" :label="$t('menu.allLists')" />
-      <b-menu-item :to="{ name: 'forms' }" tag="router-link" :active="activeItem.forms" class="forms"
-        icon="newspaper-variant-outline" :label="$t('menu.forms')" />
-    </b-menu-item><!-- lists -->
+    <b-menu-item :to="{ name: 'lists' }" tag="router-link" :active="activeItem.lists"
+  data-cy="lists" icon="format-list-bulleted-square" :label="$t('User Category')" />
+  <!-- User Category -->
 
-    <b-menu-item :expanded="activeGroup.subscribers" :active="activeGroup.subscribers" data-cy="subscribers"
-      @update:active="(state) => toggleGroup('subscribers', state)" icon="account-multiple"
-      :label="$t('globals.terms.subscribers')">
-      <b-menu-item :to="{ name: 'subscribers' }" tag="router-link" :active="activeItem.subscribers"
-        data-cy="all-subscribers" icon="account-multiple" :label="$t('menu.allSubscribers')" />
-      <b-menu-item :to="{ name: 'import' }" tag="router-link" :active="activeItem.import" data-cy="import"
-        icon="file-upload-outline" :label="$t('menu.import')" />
-      <b-menu-item :to="{ name: 'bounces' }" tag="router-link" :active="activeItem.bounces" data-cy="bounces"
-        icon="email-bounce" :label="$t('globals.terms.bounces')" />
-    </b-menu-item><!-- subscribers -->
+
+    <b-menu-item :to="{ name: 'subscribers' }" tag="router-link" :active="activeItem.subscribers"
+  data-cy="subscribers" icon="account-multiple" :label="$t('Users')" />
+    <!-- Users -->
+
 
     <b-menu-item :expanded="activeGroup.campaigns" :active="activeGroup.campaigns" data-cy="campaigns"
       @update:active="(state) => toggleGroup('campaigns', state)" icon="rocket-launch-outline"

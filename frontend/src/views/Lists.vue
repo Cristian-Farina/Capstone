@@ -3,7 +3,7 @@
     <header class="columns page-header">
       <div class="column is-10">
         <h1 class="title is-4">
-          {{ $t('globals.terms.lists') }}
+          User Category
           <span v-if="!isNaN(lists.total)">({{ lists.total }})</span>
         </h1>
       </div>
@@ -36,7 +36,7 @@
         </div>
       </template>
 
-      <b-table-column v-slot="props" field="name" :label="$t('globals.fields.name')" header-class="cy-name" sortable
+      <b-table-column v-slot="props" field="name" :label="$t('Name')" header-class="cy-name" sortable
         width="25%" paginated backend-pagination pagination-position="both" :td-attrs="$utils.tdID"
         @page-change="onPageChange">
         <div>
@@ -51,36 +51,11 @@
         </div>
       </b-table-column>
 
-      <b-table-column v-slot="props" field="type" :label="$t('globals.fields.type')" header-class="cy-type" sortable
-        width="15%">
-        <div class="tags">
-          <b-tag :class="props.row.type" :data-cy="`type-${props.row.type}`">
-            {{ $t(`lists.types.${props.row.type}`) }}
-          </b-tag>
-          {{ ' ' }}
 
-          <b-tag :class="props.row.optin" :data-cy="`optin-${props.row.optin}`">
-            <b-icon :icon="props.row.optin === 'double' ? 'account-check-outline' : 'account-off-outline'"
-              size="is-small" />
-            {{ ' ' }}
-            {{ $t(`lists.optins.${props.row.optin}`) }}
-          </b-tag>{{ ' ' }}
-
-          <a v-if="props.row.optin === 'double'" class="is-size-7 send-optin" href="#"
-            @click="$utils.confirm(null, () => createOptinCampaign(props.row))" data-cy="btn-send-optin-campaign">
-            <b-tooltip :label="$t('lists.sendOptinCampaign')" type="is-dark">
-              <b-icon icon="rocket-launch-outline" size="is-small" />
-              {{ $t('lists.sendOptinCampaign') }}
-            </b-tooltip>
-          </a>
-        </div>
-      </b-table-column>
-
-      <b-table-column v-slot="props" field="subscriber_count" :label="$t('globals.terms.subscribers')"
+      <b-table-column v-slot="props" field="subscriber_count" :label="$t('Number of Users')"
         header-class="cy-subscribers" numeric sortable centered>
         <router-link :to="`/subscribers/lists/${props.row.id}`">
           {{ $utils.formatNumber(props.row.subscriberCount) }}
-          <span class="is-size-7 view">{{ $t('globals.buttons.view') }}</span>
         </router-link>
       </b-table-column>
 
