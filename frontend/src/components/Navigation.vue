@@ -3,6 +3,7 @@
     <b-menu-item :to="{ name: 'dashboard' }" tag="router-link" :active="activeItem.dashboard"
       icon="view-dashboard-variant-outline" :label="$t('menu.dashboard')" /><!-- dashboard -->
 
+
     <b-menu-item :to="{ name: 'lists' }" tag="router-link" :active="activeItem.lists"
   data-cy="lists" icon="format-list-bulleted-square" :label="$t('User Category')" />
   <!-- User Category -->
@@ -15,11 +16,11 @@
 
     <b-menu-item :expanded="activeGroup.campaigns" :active="activeGroup.campaigns" data-cy="campaigns"
       @update:active="(state) => toggleGroup('campaigns', state)" icon="rocket-launch-outline"
-      :label="$t('globals.terms.campaigns')">
+      :label="$t('Newsletter')">
       <b-menu-item :to="{ name: 'campaigns' }" tag="router-link" :active="activeItem.campaigns" data-cy="all-campaigns"
-        icon="rocket-launch-outline" :label="$t('menu.allCampaigns')" />
+        icon="rocket-launch-outline" :label="$t('All Newsletters')" />
       <b-menu-item :to="{ name: 'campaign', params: { id: 'new' } }" tag="router-link" :active="activeItem.campaign"
-        data-cy="new-campaign" icon="plus" :label="$t('menu.newCampaign')" />
+        data-cy="new-campaign" icon="plus" :label="$t('New Newsletter')" />
       <b-menu-item :to="{ name: 'media' }" tag="router-link" :active="activeItem.media" data-cy="media"
         icon="image-outline" :label="$t('menu.media')" />
       <b-menu-item :to="{ name: 'templates' }" tag="router-link" :active="activeItem.templates" data-cy="templates"

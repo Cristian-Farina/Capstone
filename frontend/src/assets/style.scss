@@ -169,23 +169,22 @@ section {
     position: relative;
   }
 }
-
+// Here you change the logo top left 
 .navbar {
   box-shadow: 0 0 3px $grey-lighter;
 }
 .navbar-brand {
   padding: 0 0 0 25px;
+  justify-content: center;  // Center the brand content horizontally
   .favicon {
-    display: none;
+    display: block;
+    max-height: 50px;  // Adjust the size of the favicon as needed
+    width: auto;  // Maintain the aspect ratio
   }
   .full {
-    max-height: 17px;
-    margin-top: 15px;
+    display: none;  // Hide the full logo if needed
   }
-  .favicon {
-    margin-top: 12px;
-    max-height: 24px;
-  }
+ 
 }
 
 .b-sidebar {
