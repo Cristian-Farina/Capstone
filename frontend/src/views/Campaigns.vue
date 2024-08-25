@@ -42,7 +42,7 @@
         sortable :td-attrs="$utils.tdID" header-class="cy-status">
         <div>
           <p>
-            <router-link :to="{ name: 'campaign', params: { id: props.row.id } }">
+            <router-link :to="{ name: 'newsletter', params: { id: props.row.id } }">
               <b-tag :class="props.row.status">
                 {{ $t(`campaigns.status.${props.row.status}`) }}
               </b-tag>

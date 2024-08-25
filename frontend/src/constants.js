@@ -4,7 +4,7 @@ export const models = Object.freeze({
   dashboard: 'dashboard',
   lists: 'lists',
   subscribers: 'subscribers',
-  campaigns: 'campaigns',
+  campaigns: 'newsletters',
   templates: 'templates',
   media: 'media',
   bounces: 'bounces',
@@ -12,7 +12,7 @@ export const models = Object.freeze({
   logs: 'logs',
   maintenance: 'maintenance',
 });
-
+//Hi paolo
 // Ad-hoc URIs that are used outside of vuex requests.
 const rootURL = import.meta.env.VUE_APP_ROOT_URL || '/';
 const baseURL = import.meta.env.BASE_URL.replace(/\/$/, '');
