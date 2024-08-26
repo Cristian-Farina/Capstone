@@ -18,7 +18,7 @@
           {{ data.name }}
         </h4>
         <h4 v-else class="title is-4">
-          {{ $t('campaigns.newCampaign') }}
+          {{ $t('New Newsletter') }}
         </h4>
       </div>
 
@@ -51,7 +51,7 @@
     <b-loading :active="loading.campaigns" />
 
     <b-tabs type="is-boxed" :animated="false" v-model="activeTab" @input="onTab">
-      <b-tab-item :label="$tc('globals.terms.campaign')" label-position="on-border" value="campaign"
+      <b-tab-item :label="$tc('Newsletter')" label-position="on-border" value="campaign"
         icon="rocket-launch-outline">
         <section class="wrap">
           <div class="columns">
