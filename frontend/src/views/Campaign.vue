@@ -18,7 +18,7 @@
           {{ data.name }}
         </h4>
         <h4 v-else class="title is-4">
-          {{ $t('New Newsletter') }}
+           {{ $t('campaigns.newCampaign') }}
         </h4>
       </div>
 
