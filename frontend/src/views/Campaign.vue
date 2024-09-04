@@ -201,7 +201,7 @@
         </div>
       </b-tab-item><!-- content -->
 
-      <b-tab-item :label="$t('campaigns.archive')" icon="newspaper-variant-outline" value="archive" :disabled="isNew">
+      <!--<b-tab-item :label="$t('campaigns.archive')" icon="newspaper-variant-outline" value="archive" :disabled="isNew">
         <section class="wrap">
           <div class="columns">
             <div class="column is-4">
@@ -262,7 +262,7 @@
               :disabled="!canArchive || !form.archive" rows="20" />
           </b-field>
         </section>
-      </b-tab-item><!-- archive -->
+      </b-tab-item> i am commenting this --><!-- archive -->
     </b-tabs>
 
     <b-modal scroll="keep" :aria-modal="true" :active.sync="isAttachModalOpen" :width="900">
