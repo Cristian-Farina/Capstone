@@ -22,7 +22,7 @@
                       {{ $utils.niceNumber(counts.lists.total) }}
                     </p>
                     <p class="is-size-6 has-text-grey">
-                      {{ $tc('globals.terms.list', counts.lists.total) }}
+                      {{ $tc('User Category', counts.lists.total) }}<!-- tc was globals.terms.list -->
                     </p>
                   </div>
                   <div class="column is-6">
@@ -56,7 +56,7 @@
                       {{ $utils.niceNumber(counts.campaigns.total) }}
                     </p>
                     <p class="is-size-6 has-text-grey">
-                      {{ $tc('globals.terms.campaign', counts.campaigns.total) }}
+                      {{ $tc('Newsletters', counts.campaigns.total) }} <!-- tc was globals.terms.campaign -->
                     </p>
                   </div>
                   <div class="column is-6">
@@ -84,7 +84,7 @@
                       {{ $utils.niceNumber(counts.subscribers.total) }}
                     </p>
                     <p class="is-size-6 has-text-grey">
-                      {{ $tc('globals.terms.subscriber', counts.subscribers.total) }}
+                      {{ $tc('Users', counts.subscribers.total) }}<!-- tc was globals.terms.subscriber -->
                     </p>
                   </div>
 
@@ -122,7 +122,7 @@
               <div class="columns">
                 <div class="column is-6">
                   <h3 class="title is-size-6">
-                    {{ $t('dashboard.campaignViews') }}
+                    {{ $t('Newsletter Views') }}<!--t was  dashboard.campaignViews-->
                   </h3><br />
                   <chart type="line" v-if="campaignViews" :data="campaignViews" />
                 </div>
