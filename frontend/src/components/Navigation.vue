@@ -26,7 +26,7 @@
         icon="file-image-outline" :label="$t('globals.terms.templates')" />
       <b-menu-item :to="{ name: 'campaignAnalytics' }" tag="router-link" :active="activeItem.campaignAnalytics"
         data-cy="analytics" icon="chart-bar" :label="$t('globals.terms.analytics')" />
-    </b-menu-item><!-- campaigns -->
+    </b-menu-item><!-- newsletters -->
 
     <b-menu-item :expanded="activeGroup.settings" :active="activeGroup.settings" data-cy="settings"
       @update:active="(state) => toggleGroup('settings', state)" icon="cog-outline" :label="$t('menu.settings')">
