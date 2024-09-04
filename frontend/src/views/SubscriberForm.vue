@@ -14,53 +14,75 @@
 
         <p v-if="isEditing" class="has-text-grey is-size-7">
           {{ $t('globals.fields.id') }}: <span data-cy="id"><copy-text :text="`${data.id}`" /></span>
-          {{ $t('globals.fields.uuid') }}: <copy-text :text="data.uuid" />
-        </p>
+          {{ $t('globals.fields.uuid') }}: <copy-text :text="data.uuid" /></p>
       </header>
 
-      <section expanded class="modal-card-body">
+      <section class="modal-card-body">
         <b-field :label="$t('subscribers.email')" label-position="on-border">
-          <b-input :maxlength="200" v-model="form.email" name="email" :ref="'focus'"
-            :placeholder="$t('subscribers.email')" required />
+          <b-input
+            :maxlength="200"
+            v-model="form.email"
+            name="email"
+            ref="focus"
+            :placeholder="$t('subscribers.email')"
+            required
+          />
         </b-field>
 
         <div class="columns">
           <div class="column is-4">
-            <b-field :label="$t('First Name')" label-position="on-border">
-              <b-input :maxlength="200" v-model="form.name" name="name" :placeholder="$t('Type in first Name')" />
-            </b-field>
-            <b-field :label="$t('Last Name')" label-position="on-border">
-              <b-input :maxlength="200" v-model="form.name" name="name" :placeholder="$t('Type in last Name')" />
+            <b-field :label="$t('globals.fields.name')" label-position="on-border">
+              <b-input
+                :maxlength="200"
+                v-model="form.name"
+                name="name"
+                :placeholder="$t('globals.fields.name')"
+              />
             </b-field>
           </div>
           <div class="column is-4">
-            <b-field :label="$t('globals.fields.status')" label-position="on-border"
-              :message="$t('')">
-              <b-select v-model="form.status" name="status" :placeholder="$t('globals.fields.status')" required expanded>
-                <option value="Subscribed">
-                  {{ $t('Subscribed') }}
+            <b-field
+              :label="$t('globals.fields.status')"
+              label-position="on-border"
+              :message="$t('subscribers.blocklistedHelp')"
+            >
+              <b-select
+                v-model="form.status"
+                name="status"
+                :placeholder="$t('globals.fields.status')"
+                required
+                expanded
+              >
+                <option value="enabled">
+                  {{ $t('subscribers.status.enabled') }}
                 </option>
-                <option value="Unsubscribed">
-                  {{ $t('Unsubscribed') }}
+                <option value="blocklisted">
+                  {{ $t('subscribers.status.blocklisted') }}
                 </option>
               </b-select>
             </b-field>
           </div>
         </div>
 
-        <list-selector :label="$t('User Category')" :placeholder="$t('User Category')"
-          :message="$t('subscribers.listsHelp')" v-model="form.lists" :selected="form.lists" :all="lists.results" />
+        <list-selector
+          :label="$t('User Category')"
+          :placeholder="$t('User Category')"
+          v-model="form.lists"
+          :selected="form.lists"
+          :all="lists.results"
+        />
         <div class="columns mb-5">
           <div class="column is-7">
           </div>
-          <div class="column is-5 has-text-right" v-if="isEditing">
+          <!-- <div class="column is-5 has-text-right" v-if="isEditing">
             <a href="#" @click.prevent="sendOptinConfirmation" :class="{ 'is-disabled': !hasOptinList }">
               <b-icon icon="email-outline" size="is-small" />
               {{ $t('subscribers.sendOptinConfirm') }}</a>
-          </div>
+          </div> -->
         </div>
 
-        <div class="mb-5 mt-6" v-if="data.lists">
+        <!-- 已注释的代码部分 -->
+        <!-- <div class="mb-5 mt-6" v-if="data.lists">
           <h5>{{ $tc('globals.terms.subscriptions', 2) }} ({{ data.lists.length }})</h5>
           <b-table :data="data.lists" hoverable default-sort="createdAt" class="subscriptions">
             <b-table-column v-slot="props" field="name" :label="$tc('globals.terms.list', 1)">
@@ -86,26 +108,31 @@
               <template v-if="props.row.optin === 'double' && props.row.subscriptionMeta.optinIp">
                 <br /><span class="is-size-7">{{ props.row.subscriptionMeta.optinIp }}</span>
               </template>
-            </b-table-column> <!-- 关闭标签 -->
+            </b-table-column> 
 
             <b-table-column v-slot="props" field="createdAt" :label="$t('globals.fields.createdAt')">
               {{ $utils.niceDate(props.row.subscriptionCreatedAt, true) }}
-            </b-table-column> <!-- 关闭标签 -->
+            </b-table-column> 
 
             <b-table-column v-slot="props" field="updatedAt" :label="$t('globals.fields.updatedAt')">
               {{ $utils.niceDate(props.row.subscriptionCreatedAt, true) }}
-            </b-table-column> <!-- 关闭标签 -->
+            </b-table-column> 
             
-          </b-table> <!-- 关闭表格标签 -->
-        </div>
+          </b-table>
+        </div> -->
 
         <div class="bounces" v-show="bounces.length > 0">
-          <a href="#" class="is-size-6" disabed="true" @click.prevent="toggleBounces">
+          <a href="#" class="is-size-6" disabled @click.prevent="toggleBounces">
             <b-icon icon="email-bounce" />
             {{ $t('bounces.view') }} ({{ bounces.length }})
           </a>
-          <a href="#" class="is-size-6 is-pulled-right" disabed="true" @click.prevent="deleteBounces"
-            v-if="isBounceVisible">
+          <a
+            href="#"
+            class="is-size-6 is-pulled-right"
+            disabled
+            @click.prevent="deleteBounces"
+            v-if="isBounceVisible"
+          >
             <b-icon icon="trash-can-outline" />
             {{ $t('globals.buttons.delete') }}
           </a>
@@ -159,7 +186,7 @@ export default Vue.extend({
   props: {
     data: {
       type: Object,
-      default: () => { },
+      default: () => ({}),
     },
     isEditing: Boolean,
   },
@@ -188,11 +215,7 @@ export default Vue.extend({
     },
 
     toggleMeta(id) {
-      let v = false;
-      if (!this.visibleMeta[id]) {
-        v = true;
-      }
-      Vue.set(this.visibleMeta, id, v);
+      this.$set(this.visibleMeta, id, !this.visibleMeta[id]);
     },
 
     deleteBounces(sub) {
@@ -203,7 +226,7 @@ export default Vue.extend({
             this.getBounces();
             this.$utils.toast(this.$t('globals.messages.deleted', { name: sub.name }));
           });
-        },
+        }
       );
     },
 
@@ -216,10 +239,9 @@ export default Vue.extend({
     onSubmit() {
       if (this.isEditing) {
         this.updateSubscriber();
-        return;
+      } else {
+        this.createSubscriber();
       }
-
-      this.createSubscriber();
     },
 
     createSubscriber() {
@@ -237,8 +259,6 @@ export default Vue.extend({
         status: this.form.status,
         attribs,
         preconfirm_subscriptions: this.form.preconfirm,
-
-        // List IDs.
         lists: this.form.lists.map((l) => l.id),
       };
 
@@ -265,8 +285,6 @@ export default Vue.extend({
         status: this.form.status,
         preconfirm_subscriptions: this.form.preconfirm,
         attribs,
-
-        // List IDs.
         lists: this.form.lists.map((l) => l.id),
       };
 
@@ -277,14 +295,7 @@ export default Vue.extend({
       });
     },
 
-    sendOptinConfirmation() {
-      this.$api.sendSubscriberOptin(this.form.id).then(() => {
-        this.$utils.toast(this.$t('subscribers.sentOptinConfirm'));
-      });
-    },
-
     validateAttribs(str) {
-      // Parse and validate attributes JSON.
       let attribs = {};
       try {
         attribs = JSON.parse(str);
@@ -292,11 +303,11 @@ export default Vue.extend({
         this.$utils.toast(
           `${this.$t('subscribers.invalidJSON')}: ${e.toString()}`,
           'is-danger',
-          3000,
+          3000
         );
         return null;
       }
-      if (attribs instanceof Array) {
+      if (Array.isArray(attribs)) {
         this.$utils.toast('Attributes should be a map {} and not an array []', 'is-danger', 3000);
         return null;
       }
@@ -314,12 +325,10 @@ export default Vue.extend({
   },
 
   mounted() {
-    if (this.$props.isEditing) {
+    if (this.isEditing) {
       this.form = {
-        ...this.$props.data,
-
-        // Deep-copy the lists array on to the form.
-        strAttribs: JSON.stringify(this.$props.data.attribs, null, 4),
+        ...this.data,
+        strAttribs: JSON.stringify(this.data.attribs, null, 4),
       };
     }
 

@@ -13,7 +13,7 @@
           {{ data.name }}
         </h4>
         <h4 v-else>
-          {{ $t('User Categoty') }}
+          {{ $t('User Category') }}
         </h4>
       </header>
       <section expanded class="modal-card-body">
