@@ -17,6 +17,7 @@
       @update:active="(state) => toggleGroup('campaigns', state)" icon="rocket-launch-outline"
       :label="$t('Newsletter')">
       <b-menu-item :to="{ name: 'campaigns' }" tag="router-link" :active="activeItem.campaigns" data-cy="all-campaigns"
+      icon="rocket-launch-outline" :label="$t('All Newsletters')" />
       <b-menu-item :to="{ name: 'campaign', params: { id: 'new' } }" tag="router-link" :active="activeItem.campaign"
         data-cy="new-campaign" icon="plus" :label="$t('New Newsletter')" />
       <b-menu-item :to="{ name: 'media' }" tag="router-link" :active="activeItem.media" data-cy="media"
