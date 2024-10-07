@@ -32,3 +32,11 @@ listmonk uses only a handful of icons from the massive MDI set packed as web fon
     - Copy and overwrite `config.json` to `frontend/fontello`
     - Copy `fontello.woff2` to `frontend/src/assets/icons`.
     - Open `css/fontello.css` and copy the individual icon definitions and overwrite the ones in `frontend/src/assets/icons/fontello.css`
+
+## Changes made
+4/9/2024 (all changes are cosmetic only)
+- Changed titles from "lists" to "User Category"
+- Changed titles from "Subscribers" to "Users"
+- Logo and favicon changed
+- Changed title from "Campaign" to "Newsletters"
+- Tab label changed
